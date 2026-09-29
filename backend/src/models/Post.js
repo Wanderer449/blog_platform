@@ -1,0 +1,3 @@
+import mongoose from "mongoose";
+const commentSchema=new mongoose.Schema({author:{type:mongoose.Schema.Types.ObjectId,ref:"User",required:true},authorName:{type:String,required:true},content:{type:String,required:true,trim:true,maxlength:2000}},{timestamps:true});
+export default mongoose.model("Post",new mongoose.Schema({title:{type:String,required:true,trim:true,maxlength:180},excerpt:{type:String,default:"",maxlength:400},content:{type:String,required:true,trim:true},author:{type:mongoose.Schema.Types.ObjectId,ref:"User",required:true},authorName:{type:String,required:true},comments:{type:[commentSchema],default:[]}},{timestamps:true}));
